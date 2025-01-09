@@ -1,4 +1,4 @@
-import { GoArrowUpRight } from "react-icons/go";
+// import { GoArrowUpRight } from "react-icons/go";
 
 const Navbar = () => {
   const navLinks = [
@@ -40,10 +40,31 @@ const Navbar = () => {
             ))}
           </ul>
           <div className="flex gap-4 items-center">
-            lol
-            <button className="flex gap-2 items-center text-sm bg-white px-3 py-2 rounded-full">
+            <div>
+              <select className="w-14 lg:w-20 bg-transparent border-2 rounded-md text-slate-200">
+                <option
+                  value="usd"
+                  className="bg-[#09005c] hover:bg-[#009494] border-2 rounded-md"
+                >
+                  <span>USD</span>
+                </option>
+                <option
+                  value="eur"
+                  className="bg-[#09005c] hover:bg-[#009494] border-2 rounded-md"
+                >
+                  <span>EUR</span>
+                </option>
+                <option
+                  value="sar"
+                  className="bg-[#09005c] hover:bg-[#009494] border-2 rounded-md"
+                >
+                  <span>SAR</span>
+                </option>
+              </select>
+            </div>
+            {/* <button className="flex gap-2 items-center text-xs lg:text-sm bg-white px-3 py-2 rounded-full">
               Sign up <GoArrowUpRight size={20} />
-            </button>
+            </button> */}
           </div>
         </nav>
       </header>

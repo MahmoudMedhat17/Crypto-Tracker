@@ -39,7 +39,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="w-full mt-10 border-t-2 border-t-[#e3e3e3]">
-        <p className="text-center text-sm pt-4 text-[#e3e3e3]">
+        <p className="text-center text-xs sm:text-sm pt-4 text-[#e3e3e3]">
           Copyright @ {yearlyData}, Cryptoplace - Developed by Mahmoud medhat
         </p>
       </div>

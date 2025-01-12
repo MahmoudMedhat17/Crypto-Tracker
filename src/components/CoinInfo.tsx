@@ -1,62 +1,16 @@
 import { useContext, useEffect, useState } from "react";
 import { CoinContext } from "../Context/CoinContextProvider";
 import { IallCoins } from "../../types";
+import { useNavigate } from "react-router-dom";
 
 const CoinInfo = () => {
-  const { allCoins } = useContext(CoinContext);
+  const { allCoins, currency } = useContext(CoinContext);
   const [coins, setCoins] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setCoins(allCoins);
   }, [allCoins]);
-
-  // const dummyData = [
-  //   {
-  //     id: 1,
-  //     title: "#",
-  //     img: "/crypto-logo.png",
-  //     coin: "Bitcoin - btc",
-  //     price: "212122",
-  //     dayChange: "-4.17",
-  //     MarketCap: "$412141244",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Coins",
-  //     img: "/crypto-logo.png",
-  //     coin: "Bitcoin - btc",
-  //     price: "212122",
-  //     dayChange: "-4.17",
-  //     MarketCap: "$412141244",
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "Price",
-  //     img: "/crypto-logo.png",
-  //     coin: "Bitcoin - btc",
-  //     price: "212122",
-  //     dayChange: "-4.17",
-  //     MarketCap: "$412141244",
-  //   },
-  //   {
-  //     id: 4,
-  //     title: "24H Change",
-  //     img: "/crypto-logo.png",
-  //     coin: "Bitcoin - btc",
-  //     price: "212122",
-  //     dayChange: "-4.17",
-  //     MarketCap: "$412141244",
-  //   },
-  //   {
-  //     id: 5,
-  //     title: "MarketCap",
-  //     img: "/crypto-logo.png",
-  //     coin: "Bitcoin - btc",
-  //     price: "212122",
-  //     dayChange: "-4.17",
-  //     MarketCap: "$412141244",
-  //   },
-  // ];
 
   return (
     <div className="flex items-center justify-center py-20">
@@ -78,19 +32,23 @@ const CoinInfo = () => {
               <tr
                 key={coin.market_cap_rank}
                 className="border-b border-gray-700 hover:bg-[#1c2148] hover:duration-200"
+                onClick={() => {
+                  navigate(`/coin/${coin.name}`);
+                }}
               >
                 <td className="py-4 px-6">{coin.market_cap_rank}</td>
                 <td className="py-4 px-6 flex items-center justify-center gap-2">
                   <img
                     src={coin.image}
                     alt={coin.name}
-                    className="w-6 sm:w-8 hidden sm:block"
+                    className="w-5 sm:w-8"
                   />
                   <span className="font-semibold">{coin.name}</span>-
                   <span className="font-semibold">{coin.symbol}</span>
                 </td>
-                <td className="py-4 px-6 font-semibold">
-                  {coin.current_price}
+                <td className="py-4 px-6 font-semibold space-x-0.5">
+                  <span>{currency.symbol}</span>
+                  <span>{coin.current_price}</span>
                 </td>
                 <td
                   className={`py-4 px-6 ${
@@ -103,7 +61,8 @@ const CoinInfo = () => {
                 >
                   {coin.market_cap_change_percentage_24h}%
                 </td>
-                <td className="py-4 px-6 font-semibold hidden md:flex justify-center items-center">
+                <td className="py-4 px-6 font-semibold hidden md:flex justify-center items-center gap-1">
+                  <span>{currency.symbol}</span>
                   {coin.market_cap}
                 </td>
               </tr>

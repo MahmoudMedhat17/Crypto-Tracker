@@ -5,6 +5,7 @@ import App from "./App.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home.tsx";
 import CoinContextProvider from "./Context/CoinContextProvider.tsx";
+import CoinDescription from "./components/CoinDescription.tsx";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/coin/:id",
+        element: <CoinDescription />,
       },
     ],
   },

@@ -33,7 +33,7 @@ const CoinInfo = () => {
                 key={coin.market_cap_rank}
                 className="border-b border-gray-700 hover:bg-[#1c2148] hover:duration-200"
                 onClick={() => {
-                  navigate(`/coin/${coin.name}`);
+                  navigate(`/coin/${coin.id}`);
                 }}
               >
                 <td className="py-4 px-6">{coin.market_cap_rank}</td>

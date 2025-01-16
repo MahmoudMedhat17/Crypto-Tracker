@@ -15,7 +15,7 @@ const Footer = () => {
             alt="cryptoLogo"
             className="cursor-pointer w-40"
           />
-          <p className="w-[80%] sm:w-1/2 text-xs sm:text-sm text-[#e3e3e3]">
+          <p className="w-[80%] sm:w-1/2 text-xs sm:text-sm text-secondary_color">
             Cryptoplace Website is a dynamic platform designed to help users
             monitor and analyze cryptocurrency prices, trends, and market data
             in real time. It typically features live price updates, historical
@@ -26,20 +26,20 @@ const Footer = () => {
         <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
           <FaInstagram
             size={30}
-            className="cursor-pointer text-[#e3e3e3] hover:text-[#5403ff26] duration-200"
+            className="cursor-pointer text-secondary_color hover:text-[#5403ff26] duration-200"
           />
           <FaFacebook
             size={30}
-            className="cursor-pointer text-[#e3e3e3] hover:text-[#5403ff26] duration-200"
+            className="cursor-pointer text-secondary_color hover:text-[#5403ff26] duration-200"
           />
           <FaLinkedin
             size={30}
-            className="cursor-pointer text-[#e3e3e3] hover:text-[#5403ff26] duration-200"
+            className="cursor-pointer text-secondary_color hover:text-[#5403ff26] duration-200"
           />
         </div>
       </div>
-      <div className="w-full mt-10 border-t-2 border-t-[#e3e3e3]">
-        <p className="text-center text-xs sm:text-sm pt-4 text-[#e3e3e3]">
+      <div className="w-full mt-10 border-t-2 border-t-setext-secondary_color">
+        <p className="text-center text-xs sm:text-sm pt-4 text-secondary_color">
           Copyright @ {yearlyData}, Cryptoplace - Developed by Mahmoud medhat
         </p>
       </div>

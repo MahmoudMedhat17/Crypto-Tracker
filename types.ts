@@ -4,7 +4,9 @@ interface Icurrency {
 }
 
 
+
 export interface IallCoins {
+    id: string,
     market_cap_rank: number;
     image: string;
     name: string;
@@ -21,3 +23,4 @@ export interface Icontext {
     currency: Icurrency;
     setCurrency: React.Dispatch<React.SetStateAction<Icurrency>>;
 }
+

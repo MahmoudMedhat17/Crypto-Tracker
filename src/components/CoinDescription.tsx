@@ -1,9 +1,11 @@
 import { useContext, useEffect } from "react";
 import { CoinContext } from "../Context/CoinContextProvider";
 import { useParams } from "react-router-dom";
+import { ProgressBar } from "react-loader-spinner";
 
 const CoinDescription = () => {
-  const { coinsDesc, getCoinsDesc, currency } = useContext(CoinContext);
+  const { coinsDesc, getCoinsDesc, currency, coinChart } =
+    useContext(CoinContext);
   const { id } = useParams();
 
   useEffect(() => {
@@ -16,7 +18,15 @@ const CoinDescription = () => {
 
   return Object.keys(coinsDesc).length === 0 ? (
     <div className="h-screen font-bold text-2xl sm:text-3xl md:text-4xl flex justify-center items-center w-full">
-      <h1 className="text-main_color">Data is loading</h1>
+      {/* <h1 className="text-main_color">Data is loading</h1> */}
+      <ProgressBar
+        visible={true}
+        height="80"
+        width="80"
+        barColor="#e2e8f0"
+        borderColor="#09005c"
+        ariaLabel="progress-bar-loading"
+      />
     </div>
   ) : (
     <div className="py-20 flex flex-col justify-center items-center">
@@ -35,25 +45,36 @@ const CoinDescription = () => {
           <p className="text-sm sm:text-base">Current Price</p>
           <span>
             {currency.symbol}{" "}
-            {coinsDesc.market_data.current_price[currency.name]}
+            {parseFloat(
+              coinsDesc.market_data.current_price[currency.name]
+            ).toLocaleString()}
           </span>
         </div>
         <div className="flex justify-between items-center border-b-[1px] border-main_color">
           <p className="text-sm sm:text-base">Market cap</p>
           <span>
-            {currency.symbol} {coinsDesc.market_data.market_cap[currency.name]}
+            {currency.symbol}{" "}
+            {parseFloat(
+              coinsDesc.market_data.market_cap[currency.name]
+            ).toLocaleString()}
           </span>
         </div>
         <div className="flex justify-between items-center border-b-[1px] border-main_color">
           <p className="text-sm sm:text-base">24 Hour high</p>
           <span>
-            {currency.symbol} {coinsDesc.market_data.high_24h[currency.name]}
+            {currency.symbol}{" "}
+            {parseFloat(
+              coinsDesc.market_data.high_24h[currency.name]
+            ).toLocaleString()}
           </span>
         </div>
         <div className="flex justify-between items-center border-b-[1px] border-main_color">
           <p className="text-sm sm:text-base">24 Hour low</p>
           <span>
-            {currency.symbol} {coinsDesc.market_data.low_24h[currency.name]}
+            {currency.symbol}{" "}
+            {parseFloat(
+              coinsDesc.market_data.low_24h[currency.name]
+            ).toLocaleString()}
           </span>
         </div>
       </div>

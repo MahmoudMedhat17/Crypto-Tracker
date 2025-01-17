@@ -1,6 +1,8 @@
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { ScrollToTop } from "../Utils/ScrollToTop";
 
 const Footer = () => {
   const date = new Date();
@@ -10,11 +12,13 @@ const Footer = () => {
     <footer className="py-8 px-10 md:px-20">
       <div className="flex justify-between items-center">
         <div className="space-y-4">
-          <img
-            src="logo.png"
-            alt="cryptoLogo"
-            className="cursor-pointer w-40"
-          />
+          <Link to="/" onClick={ScrollToTop}>
+            <img
+              src="logo.png"
+              alt="cryptoLogo"
+              className="cursor-pointer w-40"
+            />
+          </Link>
           <p className="w-[80%] sm:w-1/2 text-xs sm:text-sm text-secondary_color">
             Cryptoplace Website is a dynamic platform designed to help users
             monitor and analyze cryptocurrency prices, trends, and market data

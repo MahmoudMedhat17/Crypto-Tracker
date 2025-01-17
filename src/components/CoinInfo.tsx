@@ -48,7 +48,7 @@ const CoinInfo = () => {
                 </td>
                 <td className="py-4 px-6 font-semibold space-x-0.5">
                   <span>{currency.symbol}</span>
-                  <span>{coin.current_price}</span>
+                  <span>{(coin.current_price).toLocaleString()}</span>
                 </td>
                 <td
                   className={`py-4 px-6 ${
@@ -59,11 +59,14 @@ const CoinInfo = () => {
                       : "text-green-500"
                   }`}
                 >
-                  {coin.market_cap_change_percentage_24h}%
+                  {parseFloat(
+                    `${coin.market_cap_change_percentage_24h}`
+                  ).toFixed(2)}
+                  %
                 </td>
                 <td className="py-4 px-6 font-semibold hidden md:flex justify-center items-center gap-1">
                   <span>{currency.symbol}</span>
-                  {coin.market_cap}
+                  <span>{coin.market_cap.toLocaleString()}</span>
                 </td>
               </tr>
             ))}

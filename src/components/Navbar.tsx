@@ -2,6 +2,7 @@
 
 import { useContext } from "react";
 import { CoinContext } from "../Context/CoinContextProvider";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const navLinks = [
@@ -42,11 +43,13 @@ const Navbar = () => {
   return (
     <header className="py-8 px-10 md:px-20 border-b-2 border-b-[#3c3c3c]">
       <nav className="flex justify-between items-center">
-        <img
-          src="logo.png"
-          alt="cryptoLogo"
-          className="w-32 md:w-44 cursor-pointer"
-        />
+        <Link to="/">
+          <img
+            src="logo.png"
+            alt="cryptoLogo"
+            className="w-32 md:w-44 cursor-pointer"
+          />
+        </Link>
         <ul className="hidden sm:flex gap-6 md:gap-8 lg:gap-12">
           {navLinks.map((item) => (
             <li

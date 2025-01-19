@@ -1,7 +1,6 @@
 import CoinInfo from "../components/CoinInfo";
 import Hero from "../components/Hero";
 
-
 const Home = () => {
   return (
     <>

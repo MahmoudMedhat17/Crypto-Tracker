@@ -4,12 +4,12 @@ import { IallCoins } from "../../types";
 import { useNavigate } from "react-router-dom";
 
 const CoinInfo = () => {
-  const { allCoins, currency } = useContext(CoinContext);
+  const { allCoins, currency, searchedCoinState } = useContext(CoinContext);
   const [coins, setCoins] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    setCoins(allCoins);
+    setCoins(searchedCoinState);
   }, [allCoins]);
 
   return (
@@ -28,7 +28,7 @@ const CoinInfo = () => {
             </tr>
           </thead>
           <tbody className="bg-[#111439] cursor-pointer">
-            {coins.map((coin: IallCoins) => (
+            {searchedCoinState.map((coin: IallCoins) => (
               <tr
                 key={coin.market_cap_rank}
                 className="border-b border-gray-700 hover:bg-[#1c2148] hover:duration-200"
@@ -48,7 +48,7 @@ const CoinInfo = () => {
                 </td>
                 <td className="py-4 px-6 font-semibold space-x-0.5">
                   <span>{currency.symbol}</span>
-                  <span>{(coin.current_price).toLocaleString()}</span>
+                  <span>{coin.current_price.toLocaleString()}</span>
                 </td>
                 <td
                   className={`py-4 px-6 ${
@@ -61,7 +61,7 @@ const CoinInfo = () => {
                 >
                   {parseFloat(
                     `${coin.market_cap_change_percentage_24h}`
-                  ).toFixed(2)}
+                  ).toFixed(2)}{" "}
                   %
                 </td>
                 <td className="py-4 px-6 font-semibold hidden md:flex justify-center items-center gap-1">

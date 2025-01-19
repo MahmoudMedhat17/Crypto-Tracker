@@ -1,3 +1,5 @@
+import Searchbar from "./Searchbar";
+
 const Hero = () => {
   return (
     <section className="py-10">
@@ -6,19 +8,9 @@ const Hero = () => {
           Largest <br /> Crypto Marketplace
         </h1>
         <p className="text-secondary_color text-sm w-[75%]">
-          Welcome to the world's largest cryptocurrency marketplace. Sign up to
-          explore more about cryptos.
+          Welcome to the world's largest cryptocurrency marketplace.
         </p>
-        <div className="sm:w-[80%] md:w-full flex items-center border border-gray-300 rounded-lg overflow-hidden bg-white">
-          <input
-            type="text"
-            placeholder="Search crypto..."
-            className="p-2 sm:p-4 flex-grow text-gray-700 focus:outline-none sm:w-[80%] md:w-full placeholder:text-[#111439]"
-          />
-          <button className="px-4 sm:px-8 py-1 sm:py-2 bg-[#7927ff] text-white mr-2 rounded-lg">
-            Search
-          </button>
-        </div>
+        <Searchbar />
       </div>
     </section>
   );

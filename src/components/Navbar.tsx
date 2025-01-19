@@ -52,12 +52,13 @@ const Navbar = () => {
         </Link>
         <ul className="hidden sm:flex gap-6 md:gap-8 lg:gap-12">
           {navLinks.map((item) => (
-            <li
-              key={item.title}
-              className="text-slate-200 hover:text-white duration-200 cursor-pointer"
-            >
-              {item.title}
-            </li>
+            <Link to={item.link} key={item.title}>
+              <li
+                className="text-slate-200 hover:text-white duration-200 cursor-pointer"
+              >
+                {item.title}
+              </li>
+            </Link>
           ))}
         </ul>
         <div className="flex gap-4 items-center">

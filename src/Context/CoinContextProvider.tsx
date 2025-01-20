@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { Icontext } from "../../types";
 import FetchData from "../Utils/FetchData";
 
-export const CoinContext = createContext();
+export const CoinContext = createContext<Icontext | null>(null);
 
 const CoinContextProvider: React.FC<{ children: React.ReactNode }> = ({
   children,

@@ -1,15 +1,15 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { CoinContext } from "../Context/CoinContextProvider";
 import { IallCoins } from "../../types";
 import { useNavigate } from "react-router-dom";
 
 const CoinInfo = () => {
-  const { allCoins, currency, searchedCoinState } = useContext(CoinContext);
-  const [coins, setCoins] = useState([]);
+  const { allCoins, currency, searchedCoinState, setSearchedCoinState } =
+    useContext(CoinContext);
   const navigate = useNavigate();
 
   useEffect(() => {
-    setCoins(searchedCoinState);
+    setSearchedCoinState(searchedCoinState);
   }, [allCoins]);
 
   return (

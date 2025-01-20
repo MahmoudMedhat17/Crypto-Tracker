@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { CoinContext } from "../Context/CoinContextProvider";
+import { IsearchedCoinDataList, IsearchedCoinInfo } from "../../types";
 
 const Searchbar = () => {
   const [inputVal, setInputVal] = useState("");
@@ -15,7 +16,7 @@ const Searchbar = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const searchedCoin = searchedCoinState.filter((coin) =>
+    const searchedCoin = searchedCoinState.filter((coin: IsearchedCoinInfo) =>
       coin.name.toLowerCase().includes(inputVal.toLowerCase())
     );
     setSearchedCoinState(searchedCoin);
@@ -33,10 +34,18 @@ const Searchbar = () => {
         onChange={handleInput}
         placeholder="Search crypto..."
         className="p-2 sm:p-4 flex-grow text-gray-700 focus:outline-none sm:w-[80%] md:w-full placeholder:text-[#111439]"
+        required
+        list="Coinslist"
       />
+      <datalist id="Coinslist">
+        {searchedCoinState.map((coinName: IsearchedCoinDataList) => (
+          <option key={coinName.id} value={coinName.name} />
+        ))}
+      </datalist>
       <button
         type="submit"
         className="px-4 sm:px-8 py-1 sm:py-2 bg-[#7927ff] text-white mr-2 rounded-lg"
+        disabled={inputVal === ""}
       >
         Search
       </button>

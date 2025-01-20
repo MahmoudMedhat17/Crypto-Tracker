@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { Icontext } from "../../types";
 import FetchData from "../Utils/FetchData";
 
-export const CoinContext = createContext<Icontext | null>(null);
+export const CoinContext = createContext();
 
 const CoinContextProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -11,7 +11,7 @@ const CoinContextProvider: React.FC<{ children: React.ReactNode }> = ({
   const [coinsDesc, setCoinDesc] = useState([]);
   const [searchedCoinState, setSearchedCoinState] = useState([]);
   const [currency, setCurrency] = useState({ name: "usd", symbol: "$" });
-  const TrendingCoinsUrl = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency.name}&per_page=10`;
+  const TrendingCoinsUrl = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency.name}&per_page=20`;
   // const CoinCharts = `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=${currency.name}&days=7`;
 
   const getAllCoins = async () => {

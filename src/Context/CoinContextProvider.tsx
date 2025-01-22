@@ -15,14 +15,8 @@ const CoinContextProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const getAllCoins = async () => {
     try {
-      const cachedData = localStorage.getItem("cachedCoinsData");
-      if (cachedData) {
-        setAllCoins(JSON.parse(cachedData));
-      } else {
-        const response = await FetchData(TrendingCoinsUrl);
-        localStorage.setItem("cachedCoinsData", JSON.stringify(response));
-        setAllCoins(response);
-      }
+      const response = await FetchData(TrendingCoinsUrl);
+      setAllCoins(response);
     } catch (error) {
       console.log(error);
     }

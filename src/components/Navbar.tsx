@@ -53,9 +53,7 @@ const Navbar = () => {
         <ul className="hidden sm:flex gap-6 md:gap-8 lg:gap-12">
           {navLinks.map((item) => (
             <Link to={item.link} key={item.title}>
-              <li
-                className="text-slate-200 hover:text-white duration-200 cursor-pointer"
-              >
+              <li className="text-slate-200 hover:text-white duration-200 cursor-pointer">
                 {item.title}
               </li>
             </Link>
@@ -86,9 +84,6 @@ const Navbar = () => {
               <span>SAR</span>
             </option>
           </select>
-          {/* <button className="flex gap-2 items-center text-xs lg:text-sm bg-white px-3 py-2 rounded-full">
-              Sign up <GoArrowUpRight size={20} />
-            </button> */}
         </div>
       </nav>
     </header>

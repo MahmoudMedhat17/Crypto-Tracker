@@ -1,7 +1,8 @@
-interface Icurrency {
+export interface Icurrency {
     name: string;
     symbol: string;
 }
+
 
 
 
@@ -17,6 +18,8 @@ export interface IallCoins {
 }
 
 
+
+
 export interface IsearchedCoin {
     id: string,
     market_cap_rank: number;
@@ -29,6 +32,9 @@ export interface IsearchedCoin {
 }
 
 
+
+
+
 export interface Icontext {
     allCoins: IallCoins[];
     currency: Icurrency;
@@ -36,11 +42,22 @@ export interface Icontext {
 }
 
 
-export interface IsearchedCoinInfo {
-    name: string
+
+
+export interface IChartData {
+    labels: string[];
+    datasets: {
+        label: string;
+        data: number[];
+        fill: boolean;
+        borderColor: string;
+        tension: number;
+    }[];
 }
 
-export interface IsearchedCoinDataList {
-    id:string;
-    name: string
+
+
+export interface Iprice {
+    _: null;
+    price: number;
 }

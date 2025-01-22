@@ -10,6 +10,7 @@ const CoinInfo = () => {
 
   useEffect(() => {
     setSearchedCoinState(searchedCoinState);
+    console.log(searchedCoinState);
   }, [allCoins]);
 
   return (

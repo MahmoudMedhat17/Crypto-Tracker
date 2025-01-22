@@ -12,16 +12,15 @@ const CoinContextProvider: React.FC<{ children: React.ReactNode }> = ({
   const [searchedCoinState, setSearchedCoinState] = useState([]);
   const [currency, setCurrency] = useState({ name: "usd", symbol: "$" });
   const TrendingCoinsUrl = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency.name}&per_page=20`;
-  // const CoinCharts = `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=${currency.name}&days=7`;
 
   const getAllCoins = async () => {
     try {
-      const marketCachedData = localStorage.getItem("cachedData");
-      if (marketCachedData) {
-        setAllCoins(JSON.parse(marketCachedData));
+      const cachedData = localStorage.getItem("cachedCoinsData");
+      if (cachedData) {
+        setAllCoins(JSON.parse(cachedData));
       } else {
         const response = await FetchData(TrendingCoinsUrl);
-        localStorage.setItem("cachedData", JSON.stringify(response));
+        localStorage.setItem("cachedCoinsData", JSON.stringify(response));
         setAllCoins(response);
       }
     } catch (error) {
@@ -47,6 +46,7 @@ const CoinContextProvider: React.FC<{ children: React.ReactNode }> = ({
 
   useEffect(() => {
     setSearchedCoinState(allCoins);
+    console.log(currency.name);
   }, [allCoins]);
 
   const contextValues = {

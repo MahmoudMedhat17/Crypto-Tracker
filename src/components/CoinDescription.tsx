@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { CoinContext } from "../Context/CoinContextProvider";
 import { useParams } from "react-router-dom";
 import { ProgressBar } from "react-loader-spinner";
-// import ChartData from "../Utils/ChartData";
+import ChartData from "../Utils/ChartData";
 
 const CoinDescription = () => {
   const { coinsDesc, getCoinsDesc, currency } = useContext(CoinContext);
@@ -12,8 +12,6 @@ const CoinDescription = () => {
     if (id) {
       getCoinsDesc(id);
     }
-    console.log("Updated coinsDesc:", coinsDesc);
-    console.log(currency);
   }, [id]);
 
   return Object.keys(coinsDesc).length === 0 ? (
@@ -35,7 +33,7 @@ const CoinDescription = () => {
           {coinsDesc.name}
         </h3>
       </div>
-      {/* <ChartData /> */}
+      <ChartData />
       <div className="w-[80%] sm:w-[70%] space-y-4 mx-auto text-center text-main_color">
         <div className="flex justify-between items-center border-b-[1px] border-main_color">
           <p className="text-sm sm:text-base">Crypto Market Rank</p>

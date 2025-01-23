@@ -20,7 +20,7 @@ const CoinInfo = () => {
               <th className="py-4 px-6">#</th>
               <th className="py-4 px-6">Coins</th>
               <th className="py-4 px-6">Price</th>
-              <th className="py-4 px-6">24H Change</th>
+              <th className="py-4 px-6 hidden sm:table-cell">24H Change</th>
               <th className="py-4 px-6 hidden md:flex justify-center items-center">
                 Market Cap
               </th>
@@ -50,7 +50,7 @@ const CoinInfo = () => {
                   <span>{coin.current_price.toLocaleString()}</span>
                 </td>
                 <td
-                  className={`py-4 px-6 ${
+                  className={`py-4 px-6 hidden sm:table-cell ${
                     coin.market_cap_change_percentage_24h
                       .toString()
                       .startsWith("-")

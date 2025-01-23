@@ -41,7 +41,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="py-8 px-10 md:px-20 border-b-2 border-b-[#3c3c3c]">
+    <header className="py-8 px-6 md:px-20 border-b-2 border-b-[#3c3c3c]">
       <nav className="flex justify-between items-center">
         <Link to="/">
           <img

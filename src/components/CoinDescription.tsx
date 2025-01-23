@@ -34,7 +34,7 @@ const CoinDescription = () => {
         </h3>
       </div>
       <ChartData />
-      <div className="w-[80%] sm:w-[70%] space-y-4 mx-auto text-center text-main_color">
+      <div className="w-[80%] sm:w-[70%] space-y-4 mx-auto text-center text-main_color mt-16 sm:mt-10">
         <div className="flex justify-between items-center border-b-[1px] border-main_color">
           <p className="text-sm sm:text-base">Crypto Market Rank</p>
           <span>{coinsDesc.market_cap_rank}</span>

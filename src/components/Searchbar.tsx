@@ -19,7 +19,6 @@ const Searchbar = () => {
       coin.name.toLowerCase().includes(inputVal.toLowerCase())
     );
     setSearchedCoinState(searchedCoin);
-    console.log(searchedCoin);
   };
 
   return (

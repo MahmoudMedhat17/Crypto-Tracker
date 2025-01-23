@@ -1,6 +1,5 @@
 import { useContext, useEffect } from "react";
 import { CoinContext } from "../Context/CoinContextProvider";
-import { IallCoins } from "../../types";
 import { useNavigate } from "react-router-dom";
 
 const CoinInfo = () => {
@@ -29,7 +28,7 @@ const CoinInfo = () => {
             </tr>
           </thead>
           <tbody className="bg-[#111439] cursor-pointer">
-            {searchedCoinState.map((coin: IallCoins) => (
+            {searchedCoinState.map((coin) => (
               <tr
                 key={coin.market_cap_rank}
                 className="border-b border-gray-700 hover:bg-[#1c2148] hover:duration-200"

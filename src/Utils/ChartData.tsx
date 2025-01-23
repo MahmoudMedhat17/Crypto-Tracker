@@ -14,7 +14,6 @@ import { CoinContext } from "../Context/CoinContextProvider";
 import FetchData from "./FetchData";
 import { useParams } from "react-router-dom";
 import { ProgressBar } from "react-loader-spinner";
-import { IChartData } from "../../types";
 
 ChartJS.register(
   LineElement,
@@ -28,7 +27,7 @@ ChartJS.register(
 
 const ChartData = () => {
   const { currency } = useContext(CoinContext);
-  const [chartDataState, setChartDataState] = useState<IChartData | null>(null);
+  const [chartDataState, setChartDataState] = useState(null);
   const { id } = useParams();
   const coinChart = `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=${currency.name}&days=10`;
 
@@ -61,9 +60,6 @@ const ChartData = () => {
   const chartOptions = {
     responsive: true,
     plugins: {
-      legend: {
-        position: "top",
-      },
       title: {
         display: true,
         text: `${id} Price Chart (${currency.name})`,

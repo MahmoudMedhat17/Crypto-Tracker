@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { CoinContext } from "../Context/CoinContextProvider";
-import { IsearchedCoinDataList, IsearchedCoinInfo } from "../../types";
 
 const Searchbar = () => {
   const [inputVal, setInputVal] = useState("");
@@ -16,7 +15,7 @@ const Searchbar = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const searchedCoin = searchedCoinState.filter((coin: IsearchedCoinInfo) =>
+    const searchedCoin = searchedCoinState.filter((coin) =>
       coin.name.toLowerCase().includes(inputVal.toLowerCase())
     );
     setSearchedCoinState(searchedCoin);
@@ -38,7 +37,7 @@ const Searchbar = () => {
         list="Coinslist"
       />
       <datalist id="Coinslist">
-        {searchedCoinState.map((coinName: IsearchedCoinDataList) => (
+        {searchedCoinState.map((coinName) => (
           <option key={coinName.id} value={coinName.name} />
         ))}
       </datalist>

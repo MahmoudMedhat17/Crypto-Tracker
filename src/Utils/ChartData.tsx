@@ -27,7 +27,7 @@ ChartJS.register(
 
 const ChartData = () => {
   const { currency } = useContext(CoinContext);
-  const [chartDataState, setChartDataState] = useState<IChartData | null>(null);
+  const [chartDataState, setChartDataState] = useState(null);
   const { id } = useParams();
   const coinChart = `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=${currency.name}&days=10`;
 
